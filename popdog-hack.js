@@ -7,7 +7,7 @@
 
 */
 
-var interval = () =>{
+var interval =  () =>{
 fetch('/clicked/v2', {
         method: 'POST',
         headers: {
@@ -19,7 +19,10 @@ fetch('/clicked/v2', {
       .then(data => {
         console.log(data['clicks']);
         document.getElementById('myClicks').innerHTML = data['clicks'].toLocaleString();
-        interval();
+        window.setTimeout(() => {
+          interval();
+        }, 2000);
+        
       })
 };
 interval();
